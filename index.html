@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bellara | Moda Feminina</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-principal: #8B4513; 
+            --bg-cards: #808080;     
+            --cor-primaria: #DAA520;  
+            --cor-destaque: #FFD700;  
+            --cor-texto: #FFFFFF;
+            --cor-texto-mutado: #E0E0E0;
+            --transicao-suave: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--cor-texto);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .detalhe-elegante {
+            font-family: 'Yellowtail', cursive;
+            color: var(--cor-destaque);
+            text-transform: none;
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(139, 69, 19, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            padding: 1rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            color: var(--cor-destaque);
+            cursor: pointer;
+        }
+
+        .logo span {
+            color: var(--cor-texto);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            margin-left: 5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--cor-texto-mutado);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transicao-suave);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--cor-destaque);
+            transition: var(--transicao-suave);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active-link::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active-link {
+            color: var(--cor-destaque);
+        }
+
+        .btn-header {
+            background: transparent;
+            border: 2px solid var(--cor-primaria);
+            color: var(--cor-texto);
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transicao-suave);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .btn-header:hover {
+            background: var(--cor-primaria);
+            color: #000;
+            box-shadow: 0 0 15px rgba(218, 165, 32, 0.4);
+        }
+
+        /* Estrutura das Seções - Sem espaços vazios */
+        main {
+            margin-top: 80px;
+        }
+
+        section {
+            padding: 5rem 4% 6rem 4%;
+            scroll-margin-top: 80px; /* Impede o header de cobrir o título ao navegar */
+        }
+
+        /* Home Section */
+        #home {
+            padding: 0 4%;
+            height: calc(100vh - 80px);
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(139, 69, 19, 0.5)), 
+                        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            color: var(--cor-texto-mutado);
+        }
+
+        .btn-principal {
+            background: var(--cor-destaque);
+            color: #000;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: var(--transicao-suave);
+            letter-spacing: 1px;
+        }
+
+        .btn-principal:hover {
+            background: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Catálogo Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3.5rem;
+            color: var(--cor-destaque);
+            line-height: 1.2;
+        }
+
+        .grid-catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card-produto {
+            background-color: var(--bg-cards);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transicao-suave);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-produto:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            border-color: var(--cor-primaria);
+        }
+
+        .img-container {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transicao-suave);
+        }
+
+        .card-produto:hover .img-container img {
+            transform: scale(1.08);
+        }
+
+        .tag-preco {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--cor-destaque);
+            color: #000;
+            padding: 0.4rem 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .info-produto {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            background: linear-gradient(180deg, rgba(128,128,128,1) 0%, rgba(100,100,100,1) 100%);
+        }
+
+        .info-produto h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            color: var(--cor-texto);
+        }
+
+        .estoque-status {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ff4d4d;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .estoque-status.disponivel {
+            color: #2ecc71;
+        }
+
+        .btn-adicionar {
+            margin-top: auto;
+            background: transparent;
+            border: 1px solid var(--cor-primaria);
+            color: var(--cor-texto);
+            padding: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicao-suave);
+            text-transform: uppercase;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-adicionar:hover {
+            background-color: var(--cor-primaria);
+            color: #000;
+        }
+
+        /* Sobre Section */
+        .split-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .split-image {
+            flex: 1;
+            height: 500px;
+            border: 2px solid var(--cor-primaria);
+            padding: 15px;
+            position: relative;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .split-content {
+            flex: 1;
+        }
+
+        .split-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .split-content p {
+            color: var(--cor-texto-mutado);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Contato Section - Centralizado com dois tópicos */
+        .grid-contato {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(280px, 450px));
+            gap: 2.5rem;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card-contato {
+            background-color: var(--bg-cards);
+            padding: 3.5rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--cor-primaria);
+            transition: var(--transicao-suave);
+        }
+
+        .card-contato a {
+            color: var(--cor-texto);
+            font-weight: 600;
+            transition: var(--transicao-suave);
+        }
+
+        .card-contato a:hover {
+            color: var(--cor-destaque);
+        }
+
+        .card-contato:hover {
+            transform: translateY(-5px);
+            background-color: #909090;
+        }
+
+        .card-contato i {
+            font-size: 2.8rem;
+            color: var(--cor-destaque);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-contato h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .card-contato p {
+            color: var(--cor-texto-mutado);
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            padding: 3rem 4% 1.5rem 4%;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--cor-texto);
+            font-size: 1.5rem;
+            transition: var(--transicao-suave);
+        }
+
+        .social-links a:hover {
+            color: var(--cor-destaque);
+            transform: scale(1.2);
+        }
+
+        .copy {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 1.5rem;
+        }
+
+        /* Botão Flutuante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 999;
+            transition: var(--transicao-suave);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(15deg);
+            background-color: #20ba5a;
+        }
+
+        /* Responsividade */
+        @media (max-width: 850px) {
+            .grid-contato {
+                grid-template-columns: 1fr;
+            }
+            .split-container {
+                flex-direction: column;
+            }
+            .split-image {
+                width: 100%;
+                height: 350px;
+            }
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+            nav {
+                display: none; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Bellara<span>STUDIO</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link active-link">Home</a></li>
+                <li><a href="#catalogo" class="nav-link">Catálogo</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/559981478775" target="_blank">
+            <button class="btn-header">Peça Agora</button>
+        </a>
+    </header>
+
+    <main>
+
+        <section id="home">
+            <div class="hero-content">
+                <span class="detalhe-elegante">Alta Costura & Autenticidade</span>
+                <h1>Sua melhor versão sob medida</h1>
+                <p>Explore a curadoria exclusiva da Bellara. Peças selecionadas para mulheres que definem elegância, sofisticação e atitude vanguardista em cada detalhe.</p>
+                <a href="#catalogo"><button class="btn-principal">Ver Coleção Premium</button></a>
+            </div>
+        </section>
+
+        <section id="catalogo">
+            <div class="section-title">
+                <span class="detalhe-elegante">Inverno / Primavera</span>
+                <h2>Coleção Bellara</h2>
+            </div>
+            
+            <div class="grid-catalogo">
+                <div class="card-produto">
+                    <span class="tag-preco">R$ 489,00</span>
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" alt="Vestido Premium">
+                    </div>
+                    <div class="info-produto">
+                        <h3>Vestido Midi Velvet</h3>
+                        <p class="estoque-status disponivel"><i class="fa-solid fa-check"></i> Poucas unidades em estoque</p>
+                        <button class="btn-adicionar" onclick="window.open('https://wa.me/559981478775?text=Olá! Gostaria de encomendar o Vestido Midi Velvet', '_blank')"><i class="fa-solid fa-bag-shopping"></i> Comprar via WhatsApp</button>
+                    </div>
+                </div>
+
+                <div class="card-produto">
+                    <span class="tag-preco">R$ 620,00</span>
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1000&auto=format&fit=crop" alt="Casaco Alfaiataria">
+                    </div>
+                    <div class="info-produto">
+                        <h3>Blazer Tailored Dourado</h3>
+                        <p class="estoque-status disponivel"><i class="fa-solid fa-check"></i> Pronta entrega</p>
+                        <button class="btn-adicionar" onclick="window.open('https://wa.me/559981478775?text=Olá! Gostaria de encomendar o Blazer Tailored Dourado', '_blank')"><i class="fa-solid fa-bag-shopping"></i> Comprar via WhatsApp</button>
+                    </div>
+                </div>
+
+                <div class="card-produto">
+                    <span class="tag-preco">R$ 350,00</span>
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?q=80&w=1000&auto=format&fit=crop" alt="Conjunto Minimalista">
+                    </div>
+                    <div class="info-produto">
+                        <h3>Conjunto Urbano Linen</h3>
+                        <p class="estoque-status"><i class="fa-solid fa-triangle-exertion"></i> Última peça disponível!</p>
+                        <button class="btn-adicionar" onclick="window.open('https://wa.me/559981478775?text=Olá! Gostaria de encomendar o Conjunto Urbano Linen', '_blank')"><i class="fa-solid fa-bag-shopping"></i> Comprar via WhatsApp</button>
+                    </div>
+                </div>
+
+                <div class="card-produto">
+                    <span class="tag-preco">R$ 799,00</span>
+                    <div class="img-container">
+                        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000&auto=format&fit=crop" alt="Vestido de Gala">
+                    </div>
+                    <div class="info-produto">
+                        <h3>Vestido Seda Bellara</h3>
+                        <p class="estoque-status disponivel"><i class="fa-solid fa-check"></i> Pronta entrega</p>
+                        <button class="btn-adicionar" onclick="window.open('https://wa.me/559981478775?text=Olá! Gostaria de encomendar o Vestido Seda Bellara', '_blank')"><i class="fa-solid fa-bag-shopping"></i> Comprar via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <div class="split-container">
+                <div class="split-image">
+                    <img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?q=80&w=1000&auto=format&fit=crop" alt="Tecnologia de produção de ponta">
+                </div>
+                <div class="split-content">
+                    <span class="detalhe-elegante">Nossa Essência</span>
+                    <h2>Tradição e Modernidade Digital</h2>
+                    <p>A Bellara nasceu da união entre a precisão da alta costura tradicional e a inovação tecnológica da era moderna. Buscamos trazer uma experiência impecável de ponta a ponta, unindo tecidos nobres aos designs computadorizados mais modernos do mercado.</p>
+                    <p>Cada peça passa por um rigoroso controle de qualidade técnico para garantir caimento perfeito, durabilidade extraordinária e o conforto indispensável que a mulher contemporânea necessita para conquistar o mundo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato">
+            <div class="section-title">
+                <span class="detalhe-elegante">Fale Conosco</span>
+                <h2>Atendimento Exclusivo</h2>
+            </div>
+
+            <div class="grid-contato">
+                <div class="card-contato">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>
+                        <a href="https://wa.me/559981478775" target="_blank">+55 (99) 8147-8775</a><br>
+                        Clique para iniciar uma conversa
+                    </p>
+                </div>
+
+                <div class="card-contato">
+                    <i class="fa-brands fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>
+                        <a href="https://instagram.com/usebellara" target="_blank">@usebellara</a><br>
+                        Acompanhe as novidades diárias
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="logo">Bellara<span>STUDIO</span></div>
+            <div class="social-links">
+                <a href="https://instagram.com/usebellara" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="https://wa.me/559981478775" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="copy">
+            &copy; 2026 Bellara Moda Feminina. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <a href="https://wa.me/559981478775?text=Olá! Vim pelo site da Bellara e gostaria de mais informações." target="_blank" class="whatsapp-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const links = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            links.forEach(link => {
+                link.classList.remove('active-link');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active-link');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
